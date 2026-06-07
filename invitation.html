@@ -75,6 +75,16 @@
     animation:woody-bob 3.4s ease-in-out infinite;}
   .woody img{display:block;width:100%;height:auto;}
   @keyframes woody-bob{0%,100%{transform:translateY(0) rotate(-1.5deg)}50%{transform:translateY(-6px) rotate(1.5deg)}}
+  .jessie{position:absolute;top:132px;right:2px;width:90px;z-index:2;
+    filter:drop-shadow(0 4px 8px rgba(0,0,0,.28));
+    animation:jessie-bob 3.6s ease-in-out infinite;}
+  .jessie img{display:block;width:100%;height:auto;}
+  @keyframes jessie-bob{0%,100%{transform:translateY(0) rotate(2deg)}50%{transform:translateY(-5px) rotate(-2deg)}}
+  .rex{position:absolute;top:298px;right:4px;width:82px;z-index:2;
+    filter:drop-shadow(0 4px 8px rgba(0,0,0,.3));
+    animation:rex-bob 3.8s ease-in-out infinite;}
+  .rex img{display:block;width:100%;height:auto;}
+  @keyframes rex-bob{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-4px) rotate(3deg)}}
 
   .content{position:relative;z-index:5;height:100%;display:flex;flex-direction:column;
     align-items:center;text-align:center;padding:24px 26px 22px;}
@@ -183,6 +193,8 @@
     </div>
 
     <div class="woody"><img src="woody.jpeg" alt=""></div>
+    <div class="jessie"><img src="jessie.webp" alt=""></div>
+    <div class="rex"><img src="rex.png" alt=""></div>
 
     <div class="rocket" style="top:120px;right:24px;">
       <svg width="50" height="82" viewBox="0 0 58 92">
