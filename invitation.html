@@ -31,17 +31,35 @@
   .cloud span{position:absolute;background:var(--cloud);border-radius:50%;}
   .cloud{position:absolute;}
   .c-base{border-radius:60px;}
-  .cloud1{top:150px;left:-34px;transform:scale(.78);opacity:.96;}
-  .cloud2{top:96px;right:-30px;transform:scale(.6);}
-  .cloud3{bottom:184px;left:-26px;transform:scale(.55);opacity:.9;}
-  .cloud4{bottom:60px;right:-14px;transform:scale(.72);}
+  .cloud1{top:150px;left:-34px;opacity:.96;animation:cloud1 25s ease-in-out infinite;}
+  .cloud2{top:96px;right:-30px;animation:cloud2 30s ease-in-out infinite;}
+  .cloud3{bottom:184px;left:-26px;opacity:.9;animation:cloud3 28s ease-in-out infinite;}
+  .cloud4{bottom:60px;right:-14px;animation:cloud4 35s ease-in-out infinite;}
+  @keyframes cloud1{0%,100%{transform:scale(.78) translateX(0)}50%{transform:scale(.78) translateX(60px)}}
+  @keyframes cloud2{0%,100%{transform:scale(.6) translateX(0)}50%{transform:scale(.6) translateX(-45px)}}
+  @keyframes cloud3{0%,100%{transform:scale(.55) translateX(0)}50%{transform:scale(.55) translateX(50px)}}
+  @keyframes cloud4{0%,100%{transform:scale(.72) translateX(0)}50%{transform:scale(.72) translateX(-55px)}}
   .sun{position:absolute;top:26px;left:30px;width:58px;height:58px;border-radius:50%;
     background:radial-gradient(circle at 40% 35%,#fff0b0,var(--sunny) 60%,var(--sunny-deep));
-    box-shadow:0 0 0 7px rgba(255,206,58,.28),0 0 30px rgba(255,206,58,.55); z-index:2;}
+    box-shadow:0 0 0 7px rgba(255,206,58,.28),0 0 30px rgba(255,206,58,.55); z-index:2;
+    animation:sun-pulse 4s ease-in-out infinite;}
+  @keyframes sun-pulse{
+    0%,100%{box-shadow:0 0 0 7px rgba(255,206,58,.28),0 0 30px rgba(255,206,58,.55)}
+    50%{box-shadow:0 0 0 11px rgba(255,206,58,.36),0 0 48px rgba(255,206,58,.78)}
+  }
   .twinkle{position:absolute;z-index:2;animation:tw 3s ease-in-out infinite;}
   @keyframes tw{0%,100%{opacity:.55;transform:scale(.85)}50%{opacity:1;transform:scale(1.1)}}
-  .rocket{position:absolute;z-index:2;animation:float 5s ease-in-out infinite;}
-  @keyframes float{0%,100%{transform:translateY(0) rotate(-10deg)}50%{transform:translateY(-9px) rotate(-10deg)}}
+  .rocket{position:absolute;z-index:2;animation:fly 14s ease-in-out infinite;}
+  @keyframes fly{
+    0%   {transform:translate(0,0) rotate(-15deg)}
+    20%  {transform:translate(-140px,-25px) rotate(-30deg)}
+    40%  {transform:translate(-290px,10px) rotate(-40deg)}
+    60%  {transform:translate(-260px,90px) rotate(-15deg)}
+    80%  {transform:translate(-100px,70px) rotate(0deg)}
+    100% {transform:translate(0,0) rotate(-15deg)}
+  }
+  .rocket-flame{transform-origin:50% 100%;transform-box:fill-box;animation:flicker .22s ease-in-out infinite alternate;}
+  @keyframes flicker{0%{transform:scaleY(.8) scaleX(1)}100%{transform:scaleY(1.3) scaleX(1.05)}}
 
   .content{position:relative;z-index:5;height:100%;display:flex;flex-direction:column;
     align-items:center;text-align:center;padding:24px 26px 22px;}
@@ -53,11 +71,15 @@
     border:6px solid #fff;
     box-shadow:0 0 0 7px var(--sunny),0 0 0 10px var(--sunny-deep),0 12px 22px rgba(0,0,0,.28);
   }
-  .photo-star{position:absolute;top:-12px;right:-10px;transform:rotate(14deg);z-index:3;}
+  .photo-star{position:absolute;top:-12px;right:-10px;transform:rotate(14deg);z-index:3;
+    animation:spin-star 12s linear infinite;}
+  @keyframes spin-star{0%{transform:rotate(14deg)}100%{transform:rotate(374deg)}}
 
   .banner{position:relative;background:var(--red);color:#fff;font-family:'Luckiest Guy',cursive;
     letter-spacing:1.4px;font-size:16px;padding:8px 28px;border-radius:30px;margin-top:16px;
-    box-shadow:0 4px 0 var(--red-deep),0 9px 14px rgba(0,0,0,.18);text-shadow:0 2px 0 rgba(0,0,0,.18);}
+    box-shadow:0 4px 0 var(--red-deep),0 9px 14px rgba(0,0,0,.18);text-shadow:0 2px 0 rgba(0,0,0,.18);
+    animation:banner-wiggle 3.4s ease-in-out infinite;}
+  @keyframes banner-wiggle{0%,100%{transform:rotate(-1.2deg)}50%{transform:rotate(1.2deg)}}
 
   .pre{margin-top:14px;font-weight:600;font-size:12.5px;color:var(--ink);}
   .name{font-family:'Luckiest Guy',cursive;font-size:54px;line-height:.95;margin-top:2px;
@@ -66,7 +88,9 @@
   .turning{display:flex;align-items:center;gap:9px;margin-top:5px;font-family:'Luckiest Guy',cursive;
     color:var(--ink);font-size:19px;letter-spacing:.5px;}
   .turning .one{color:var(--sunny-deep);-webkit-text-stroke:2px #fff;paint-order:stroke fill;
-    font-size:34px;transform:rotate(-7deg);display:inline-block;}
+    font-size:34px;transform:rotate(-7deg);display:inline-block;
+    animation:wobble-one 2.6s ease-in-out infinite;}
+  @keyframes wobble-one{0%,100%{transform:rotate(-7deg) scale(1)}50%{transform:rotate(8deg) scale(1.12)}}
   .theme{margin-top:11px;font-weight:500;font-size:12.5px;color:var(--ink);max-width:300px;line-height:1.4;}
   .theme b{color:var(--green-deep);font-weight:700;}
 
@@ -91,7 +115,11 @@
   @media print{
     body{background:#fff;padding:0;}
     .card{box-shadow:inset 0 0 0 7px #fff, inset 0 0 0 11px var(--red);border-radius:0;}
-    .rocket,.twinkle{animation:none!important;}
+    *{animation:none!important;}
+    .cloud1{transform:scale(.78);}
+    .cloud2{transform:scale(.6);}
+    .cloud3{transform:scale(.55);}
+    .cloud4{transform:scale(.72);}
     @page{size:5in 7in;margin:0;}
   }
 </style>
@@ -108,13 +136,22 @@
     <div class="twinkle" style="top:90px;left:120px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M12 0l2.4 8.2L22 9l-6.3 4.9L18 22l-6-4.6L6 22l2.3-8.1L2 9l7.6-.8z"/></svg></div>
     <div class="twinkle" style="top:210px;right:34px;animation-delay:1s;"><svg width="13" height="13" viewBox="0 0 24 24" fill="#fff"><path d="M12 0l2.4 8.2L22 9l-6.3 4.9L18 22l-6-4.6L6 22l2.3-8.1L2 9l7.6-.8z"/></svg></div>
     <div class="twinkle" style="bottom:300px;left:28px;animation-delay:.5s;"><svg width="12" height="12" viewBox="0 0 24 24" fill="#fff"><path d="M12 0l2.4 8.2L22 9l-6.3 4.9L18 22l-6-4.6L6 22l2.3-8.1L2 9l7.6-.8z"/></svg></div>
+    <div class="twinkle" style="top:60px;left:240px;animation-delay:1.5s;"><svg width="10" height="10" viewBox="0 0 24 24" fill="#fff"><path d="M12 0l2.4 8.2L22 9l-6.3 4.9L18 22l-6-4.6L6 22l2.3-8.1L2 9l7.6-.8z"/></svg></div>
+    <div class="twinkle" style="top:160px;left:60px;animation-delay:2.2s;"><svg width="11" height="11" viewBox="0 0 24 24" fill="#fff"><path d="M12 0l2.4 8.2L22 9l-6.3 4.9L18 22l-6-4.6L6 22l2.3-8.1L2 9l7.6-.8z"/></svg></div>
+    <div class="twinkle" style="top:300px;left:30px;animation-delay:.8s;"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M12 0l2.4 8.2L22 9l-6.3 4.9L18 22l-6-4.6L6 22l2.3-8.1L2 9l7.6-.8z"/></svg></div>
+    <div class="twinkle" style="bottom:420px;right:80px;animation-delay:1.8s;"><svg width="11" height="11" viewBox="0 0 24 24" fill="#fff"><path d="M12 0l2.4 8.2L22 9l-6.3 4.9L18 22l-6-4.6L6 22l2.3-8.1L2 9l7.6-.8z"/></svg></div>
+    <div class="twinkle" style="bottom:240px;right:160px;animation-delay:2.5s;"><svg width="9" height="9" viewBox="0 0 24 24" fill="#fff"><path d="M12 0l2.4 8.2L22 9l-6.3 4.9L18 22l-6-4.6L6 22l2.3-8.1L2 9l7.6-.8z"/></svg></div>
 
     <div class="rocket" style="top:120px;right:24px;">
-      <svg width="50" height="68" viewBox="0 0 58 78">
+      <svg width="50" height="82" viewBox="0 0 58 92">
         <path d="M29 2C40 14 44 30 44 44c0 6-2 11-4 15H18c-2-4-4-9-4-15C14 30 18 14 29 2z" fill="#fff" stroke="#21314f" stroke-width="2.5"/>
         <circle cx="29" cy="30" r="8" fill="#79c6ee" stroke="#21314f" stroke-width="2.5"/>
         <path d="M18 50c-7 2-12 8-13 16 6-1 10-3 13-7zM40 50c7 2 12 8 13 16-6-1-10-3-13-7z" fill="#e23b34" stroke="#21314f" stroke-width="2.5"/>
-        <path d="M24 65h10l-2 9-3 2-3-2z" fill="#ffce3a" stroke="#21314f" stroke-width="2"/>
+        <g class="rocket-flame">
+          <path d="M22 65h14l-2 12-5 6-5-6z" fill="#ffce3a" stroke="#21314f" stroke-width="2"/>
+          <path d="M25 70h8l-1 10-3 5-3-5z" fill="#e23b34" opacity=".9"/>
+          <path d="M27 75h4l-1 7-1 3-1-3z" fill="#fff7e6" opacity=".8"/>
+        </g>
       </svg>
     </div>
 
