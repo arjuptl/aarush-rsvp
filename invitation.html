@@ -69,13 +69,12 @@
   .lasso{position:absolute;bottom:230px;right:14px;z-index:2;
     animation:lasso-spin 8s linear infinite;}
   @keyframes lasso-spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
-  .woody{position:absolute;top:108px;left:2px;width:110px;z-index:2;
-    border-radius:12px;overflow:hidden;
-    box-shadow:0 4px 12px rgba(0,0,0,.22);
+  .woody{position:absolute;top:88px;left:2px;width:78px;z-index:2;
+    filter:drop-shadow(0 4px 8px rgba(0,0,0,.3));
     animation:woody-bob 3.4s ease-in-out infinite;}
   .woody img{display:block;width:100%;height:auto;}
-  @keyframes woody-bob{0%,100%{transform:translateY(0) rotate(-1.5deg)}50%{transform:translateY(-6px) rotate(1.5deg)}}
-  .jessie{position:absolute;top:132px;right:2px;width:90px;z-index:2;
+  @keyframes woody-bob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-6px) rotate(2deg)}}
+  .jessie{position:absolute;top:128px;right:2px;width:74px;z-index:2;
     filter:drop-shadow(0 4px 8px rgba(0,0,0,.28));
     animation:jessie-bob 3.6s ease-in-out infinite;}
   .jessie img{display:block;width:100%;height:auto;}
@@ -197,7 +196,7 @@
       </svg>
     </div>
 
-    <div class="woody"><img src="woody.jpeg" alt=""></div>
+    <div class="woody"><img src="woody.png" alt=""></div>
     <div class="jessie"><img src="jessie.webp" alt=""></div>
     <div class="rex"><img src="rex.png" alt=""></div>
     <div class="buzz"><img src="buzz.png" alt=""></div>
