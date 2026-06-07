@@ -69,6 +69,12 @@
   .lasso{position:absolute;bottom:230px;right:14px;z-index:2;
     animation:lasso-spin 8s linear infinite;}
   @keyframes lasso-spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+  .woody{position:absolute;top:108px;left:2px;width:110px;z-index:2;
+    border-radius:12px;overflow:hidden;
+    box-shadow:0 4px 12px rgba(0,0,0,.22);
+    animation:woody-bob 3.4s ease-in-out infinite;}
+  .woody img{display:block;width:100%;height:auto;}
+  @keyframes woody-bob{0%,100%{transform:translateY(0) rotate(-1.5deg)}50%{transform:translateY(-6px) rotate(1.5deg)}}
 
   .content{position:relative;z-index:5;height:100%;display:flex;flex-direction:column;
     align-items:center;text-align:center;padding:24px 26px 22px;}
@@ -175,6 +181,8 @@
         <path d="M30 8 q-20 3 -20 22 q0 18 20 22 q18 0 20 -16 q0 -12 -14 -12 q-10 0 -10 8 q0 6 6 6" fill="none" stroke="#8B4513" stroke-width="3" stroke-linecap="round" stroke-dasharray="4 2.5"/>
       </svg>
     </div>
+
+    <div class="woody"><img src="woody.jpeg" alt=""></div>
 
     <div class="rocket" style="top:120px;right:24px;">
       <svg width="50" height="82" viewBox="0 0 58 92">
